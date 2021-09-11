@@ -1,0 +1,92 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Make A Difference - Trivandrum</title>
+<style type="text/css">
+	h1 {
+		color: #fff;
+		background: #666;
+		opacity: 0.7;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		margin: 0;
+	}
+	body {
+		background: #b2b2b2;
+		padding: 0;
+		margin: 0;
+	}
+	img {
+		width: 65px;
+		margin: 0;
+		padding: 0;
+	}
+</style>
+<script type="text/javascript">
+function resizeAllImagesToWidth(width) {
+	var images = document.getElementsByTagName("img");
+	for(var i in images) {
+		if(typeof images[i].style != "undefined") {
+			images[i].style.width = width;
+		}
+	}
+}
+function load() {
+	// Hide the title after 2 seconds.
+	window.setTimeout(function() {
+		document.getElementsByTagName("h1")[0].style.display = "none";
+	}, 2000);
+	var max_w = window.innerWidth;
+	var max_h = window.innerHeight;
+	var h_w_aspect = 8/6;
+
+	var images = document.getElementsByTagName("img");
+	var total_photos = images.length; // 377;
+
+	var start_width = 20;
+
+	var last_w = start_width;
+	for(var w = start_width; w < 150; w++) {
+		var h = w * h_w_aspect;
+
+		var cols = Math.floor(max_w / w);
+		var rows = Math.floor(max_h / h);
+
+		let max_rows = Math.floor(max_h / h);
+
+		if(rows <= max_rows) { // If photo are coming after fold, its a problem.
+			var potential = cols * rows;
+			var diff = total_photos - potential;
+			if(diff > 0) break; // If there are photos below the fold, its too much.
+			last_w = w;
+		}
+	}
+
+	resizeAllImagesToWidth(last_w)
+}
+window.onload = load;
+window.onresize = load;
+</script>
+</head>
+<body>
+<h1>Ice Cubes</h1>
+<!-- Total: 377 People -->
+
+
+
+<img src='MIDHUN.JPG' title='MIDHUN A V' >
+
+<img src='sreeram.png' title='C V SREERAM' >
+
+<img src='ROHIT.JPG' title='ROHIT A' >
+
+<a href="https://drive.google.com/file/d/1A8uyCUzIUr2HMErfU64-ZFBG6yEYXcb3/view?usp=sharing/" target="_blank"> <img src='aromal.jpg' title='AROMAL A - Campaigns' > </a>
+
+
+
+<!-- Total Photos: 334 --></body>
+</html>
